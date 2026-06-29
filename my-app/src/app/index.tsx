@@ -3,7 +3,8 @@ import { Text, View, StyleSheet } from "react-native";
 export default function Index() {
   return (
     <View style={styles.container}>
-      <Text>Edit src/app/index.tsx to edit this screen.</Text>
+      <h1>VocZLI</h1>
+      <h2>Meine Vokabel-Lern App</h2>
     </View>
   );
 }
