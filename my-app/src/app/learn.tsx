@@ -1,18 +1,7 @@
 import React from 'react';
-import { Text, View, StyleSheet, Button, Pressable } from 'react-native';
-import Voci from '../../models/voci';
+import { Text, View, StyleSheet, Button, Pressable, Image } from 'react-native';
 import { router } from 'expo-router';
-
-const vociList: Voci[] = [
-  { term: "der Hund", translation: "the dog" },
-  { term: "die Katze", translation: "the cat" },
-  { term: "das Haus", translation: "the house" },
-  { term: "der Baum", translation: "the tree" },
-  { term: "die Schule", translation: "the school" },
-  { term: "das Buch", translation: "the book" },
-  { term: "der Tisch", translation: "the table" },
-  { term: "die Sonne", translation: "the sun" },
-];
+import { useVoci } from '../../context/vociContext';
 
 const styles = StyleSheet.create({
     card: {
@@ -50,9 +39,16 @@ const styles = StyleSheet.create({
         marginTop: 10,
         borderRadius: 5,
     },
+    image: {
+        width: 200,
+        height: 200,
+        borderRadius: 10,
+        marginBottom: 10,
+    },
 });
 
 export default function LearnScreen() {
+    const { vociList } = useVoci();
     const [currentIndex, setCurrentIndex] = React.useState(0);
     const [showTranslation, setShowTranslation] = React.useState(false);
     const [rightAnswers, setRightAnswers] = React.useState(0);
@@ -75,7 +71,10 @@ export default function LearnScreen() {
     return (
         <View style={styles.container}>
             <View style={styles.card}>
-                <Text style={styles.term}> {vociList[currentIndex].term}</Text>
+                {vociList[currentIndex].imageUri && (
+                    <Image source={{ uri: vociList[currentIndex].imageUri }} style={styles.image} resizeMode="cover" />
+                )}
+                <Text style={styles.term}>{vociList[currentIndex].term}</Text>
                 {showTranslation && <Text style={styles.translation}>{vociList[currentIndex].translation}</Text>}
                 {!showTranslation && (
                     <Button title="Übersetzung anzeigen" onPress={() => {
