@@ -2,7 +2,7 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useVoci } from '../../context/vociContext';
 import VociDetail from '../../components/VociDetail';
 import Voci from '../../models/voci';
-import * as FileSystem from 'expo-file-system';
+import * as FileSystem from 'expo-file-system/legacy';
 
 export default function EditVociScreen() {
     const router = useRouter();

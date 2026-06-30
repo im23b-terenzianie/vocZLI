@@ -41,6 +41,12 @@
           "photosPermission": "Die App möchte auf deine Fotos zugreifen.",
           "cameraPermission": "Die App möchte auf die Kamera zugreifen."
         }
+      ],
+      [
+        "expo-sensors",
+        {
+          "motionPermission": "Allow $(PRODUCT_NAME) to access your device motion"
+        }
       ]
     ],
     "experiments": {

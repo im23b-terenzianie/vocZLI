@@ -26,6 +26,9 @@ export default function Index() {
         renderItem={({ item }) => <VociItem voci={item} />}
       />
       <Pressable style={styles.fab} onPress={() => router.push("/learn")}>
+        <Ionicons name="add" size={24} color="white" />
+      </Pressable>
+      <Pressable style={[styles.fab, { bottom: 90 }]} onPress={() => router.push("/accel")}>
         <Ionicons name="play" size={24} color="white" />
       </Pressable>
     </View>
